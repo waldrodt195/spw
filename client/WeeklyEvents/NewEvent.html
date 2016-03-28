@@ -1,0 +1,8 @@
+<template name="NewEvent">
+	{{#if isInRole 'admin'}}
+	<div class="new-event-container">
+		<!--quickForm is from the autoform package installed-->
+		{{> quickForm collection="Entries" id="insertEventForm" type="insert" class="new-event-form"}}
+	</div>
+	{{/if}}
+</template>

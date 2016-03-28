@@ -1,0 +1,18 @@
+<template name="Following">
+	<h1 class="page-title">Events Followed</h1>
+	{{#each followingcollection}}
+		{{> FollowingEvent}}
+	{{else}}
+		<h3>This is where you will find events that you follow.
+		Look <a href="/weekly-events">here</a> to start following events.</h3>
+	{{/each}}
+</template>
+
+
+<template name="FollowingEvent">
+	<div class="following-event">
+		<h2>{{date}}</h2>
+		<h3>{{name}}</h3>
+		<p>{{place}} - {{time}}</p>
+	</div>
+</template>

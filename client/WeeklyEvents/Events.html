@@ -1,0 +1,14 @@
+<template name="Events">
+	{{> NewEvent}}
+	<section class="events">
+		<!--the if else block: shows loading meassage if content is not yet 
+		    loaded in-->
+		{{#if Template.subscriptionsReady}}
+			{{#each entries}}
+				{{> Event}}
+			{{/each}}
+		{{else}}
+			<p>Loading</p> 
+		{{/if}}
+	</section>
+</template>

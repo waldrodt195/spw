@@ -1,0 +1,25 @@
+<template name="Event">
+	<article class="event {{#if inFollow}}in-follow{{/if}}">
+		<h2>{{date}}</h2>
+		<h3>{{name}}</h3>
+		<p>{{description}}</p>
+		<p>{{details.place}} - {{details.time}}</p>
+
+		{{#if edit}} <!--handlebars helpers package-->
+			{{> quickForm collection="Entries" id=updateEvent type="update"
+			doc=this}}
+		{{else}}
+			{{#if inFollow}}
+				<button class="btn-deny toggle-follow">Unfollow</button>
+			{{else}}
+				<button class="btn-primary toggle-follow">Follow</button>		
+			{{/if}}
+		{{/if}}
+		<!--<a href="/event/{{_id}}">Details</a>-->
+
+		{{#if isInRole 'admin'}}
+		<i class="fa fa-pencil"></i>
+		<i class="fa fa-trash"></i>
+		{{/if}}
+	</article>
+</template>

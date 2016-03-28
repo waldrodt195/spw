@@ -1,0 +1,33 @@
+<template name="Club">
+	<h1 class="page-title">Clubs at Potsdam</h1>
+
+	{{#if isInRole 'admin'}}
+		{{> NewClub}}
+	{{/if}}
+	<section class="clubs-list">
+	{{#each clubs}}
+		{{> ClubEntry}}
+	{{else}}
+		<h3>Please update the clubs list.</h3>
+	{{/each}}
+	</section>
+</template>
+
+<template name="ClubEntry">
+	<div class="club-entry">
+		<h2>{{name}}</h2>
+		<p>{{details.place}} - {{details.time}}</p>
+		<p>{{contact}}</p>		
+		
+		{{#if isInRole 'admin'}}
+			<i class="fa fa-pencil"></i>
+			<i class="fa fa-trash"></i>
+		{{/if}}
+		
+		{{#if edit}} <!--handlebars helpers package-->
+			{{> quickForm collection="Clubs" id=updateClub type="update"
+			doc=this}}
+		{{/if}}
+
+	</div>
+</template>
