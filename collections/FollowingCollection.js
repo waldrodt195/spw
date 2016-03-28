@@ -11,7 +11,6 @@ FollowingCollection.allow({
 
 Meteor.methods({
     unfollow: function(id, owner){
-    	//if(id == this.eid){
         	FollowingCollection.remove(id);
         
 	}
