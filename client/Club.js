@@ -7,7 +7,11 @@ Template.Club.onCreated(function(){
 
 Template.Club.helpers({
 	clubs: ()=> {
-		return Clubs.find({});
+		return Clubs.find({}, {
+			sort: [
+				["name", "asc"]
+			]
+		});
 	}
 });
 
