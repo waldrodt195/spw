@@ -74,12 +74,14 @@ html
     box-sizing: inherit
 
 body
-    background white
+    background-image: url("/bear.jpg");
+    background-size: cover
+    background-attachment:fixed;
     padding: 70px 0 150px
 
 header
     color #FFF 
-    background: rgb(90, 0, 0)
+    background: rgb(70, 0, 0)
     padding 20px 
     fixed top left
     width 100%
@@ -106,7 +108,7 @@ p
     margin-bottom 30px 
 
 .billboard
-    background rgb(90, 0, 0)
+    background rgb(70, 0, 0)
     color #FFF
     font-size 2em
     text-align center
@@ -262,7 +264,7 @@ input, select, textarea
     height 100px
     width 100%
     overflow hidden 
-    background rgb(90, 0, 0)
+    background rgb(70, 0, 0)
     color #FFF
     z-index: z.header
     shadow-level(2)
@@ -306,7 +308,8 @@ input, select, textarea
                 border-left 10px solid teal
 
 .events, .club-entry
-    background #FFF 
+    background grey
+    opacity: 0.8;
     padding 0 20px 20px 
     margin-bottom 20px
     position relative 
@@ -316,7 +319,7 @@ input, select, textarea
     .btn-primary
         display inline-block
     &.in-follow
-        background rgb(90, 0, 0)
+        background rgb(70, 0, 0)
         color #FFF
         h3
             border-bottom: rgba(255,255,255, 0.6) solid 3px
