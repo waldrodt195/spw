@@ -1,8 +1,11 @@
 if(Meteor.isClient){
+
+	// Routes to the events page on login
 	Accounts.onLogin(function(){
 		FlowRouter.go('weekly-events');
 	});
 
+	// Routes to the homepage on logout
 	Accounts.onLogout(function(){
 		FlowRouter.go('home');
 	});
@@ -14,6 +17,7 @@ FlowRouter.triggers.enter([function(context, redirect){
 	}
 }]);
 
+// Renders the home layout when home
 FlowRouter.route('/', {
 	name: 'home',
 	action(){
@@ -24,6 +28,7 @@ FlowRouter.route('/', {
 	}
 });
 
+// Renders the events layout page
 FlowRouter.route('/weekly-events', {
 	name: 'weekly-events',
 	action(){
@@ -38,6 +43,7 @@ FlowRouter.route('/event/:id', {
 	}
 });
 
+// Routes to and Renders the Following page
 FlowRouter.route('/following', {
 	name: 'following', 
 	action(){
@@ -45,6 +51,7 @@ FlowRouter.route('/following', {
 	}
 });
 
+// Routes to and Renders the Clubs Page
 FlowRouter.route('/clubs', {
 	name: 'club', 
 	action(){

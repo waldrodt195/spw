@@ -1,3 +1,5 @@
+// This file publishes all collections to the server
+
 Meteor.publish('entries', function(){
 	return Entries.find();
 });

@@ -27,6 +27,7 @@ fastclick
 raix:handlebar-helpers
 aldeed:collection2
 aldeed:autoform
+accounts-base
 accounts-ui
 accounts-password
 matb33:bootstrap-glyphicons
@@ -35,5 +36,6 @@ gwendall:auth-client-callbacks # Handles onLogin/onLogut on client
 meteortoys:allthings
 check
 reactive-var
+reactive-dict
 alanning:roles
 mrt:bootstrap-3

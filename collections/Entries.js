@@ -1,5 +1,7 @@
+// New collection Entries
 Entries = new Mongo.Collection('entries');
 
+// Allows insertions and updates to Entries
 Entries.allow({
     insert: function(userId, doc){
         return !!userId;
@@ -9,6 +11,7 @@ Entries.allow({
     }
 });
 
+// Sub schema for place and time
 Details = new SimpleSchema({
     place: {
         type: String,
@@ -20,13 +23,11 @@ Details = new SimpleSchema({
     }
 });
 
+// Schema for entry details
 EntrySchema = new SimpleSchema({
     date: {
         type: String,
         label: "Day - Date",
-        /*autoValue: function(){
-            return new Date()
-        }*/
     }, 
     name: {
         type: String,
@@ -39,26 +40,7 @@ EntrySchema = new SimpleSchema({
     details:{
         label:" ",
         type: Details //sub schema,(Details = single, [Details] = multiple (due to autoform pkg))
-    },
-    /*place: {
-        type: String,
-        label: "Place"
-    },
-    time: {
-        type: String,
-        label: "Time" 
-    },*/
-
-    /*author:{
-        type: String, 
-        label:"Author",
-        autoValue: function(){
-            return this.userId
-        },
-        autoform: {
-            type: "hidden"
-        }, 
-    },*/ 
+    }, 
     inFollow:{
         type: Boolean,
         defaultValue: false,
@@ -69,7 +51,9 @@ EntrySchema = new SimpleSchema({
     }
 });
 
+// Methods to alter collection data
 Meteor.methods({
+    // Toggles the boolean value of inFollow
     toggleFollow: function(id, bool){
         Entries.update(id, {
             $set:{
@@ -80,9 +64,11 @@ Meteor.methods({
             Meteor.call('unfollow', id);
         }
     },
+    // Deletes events from the collection
     deleteEvent: function(id){
         Entries.remove(id);
     }
 });
 
+// Attatches the schema to the collection
 Entries.attachSchema(EntrySchema);

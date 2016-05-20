@@ -1,3 +1,4 @@
+// Subscribes to the entries on creation
 Template.Events.onCreated(function(){
 	var self = this;
 	self.autorun(function(){

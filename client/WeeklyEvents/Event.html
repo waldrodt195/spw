@@ -6,8 +6,8 @@
 		<p>{{details.place}} - {{details.time}}</p>
 
 		{{#if edit}} <!--handlebars helpers package-->
-			{{> quickForm collection="Entries" id=updateEvent type="update"
-			doc=this}}
+			{{> quickForm collection="Entries" id=updateEvent 
+			type="update" doc=this}}
 		{{else}}
 			{{#if inFollow}}
 				<button class="btn-deny toggle-follow">Unfollow</button>

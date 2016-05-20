@@ -1,3 +1,4 @@
+// Subcribes to the clubs collection on creation
 Template.Club.onCreated(function(){
 	var self = this;
 	self.autorun(function(){
@@ -5,6 +6,7 @@ Template.Club.onCreated(function(){
 	});
 });
 
+// Sorts and displays the clubs in alphabetical order
 Template.Club.helpers({
 	clubs: ()=> {
 		return Clubs.find({}, {
@@ -23,6 +25,8 @@ Template.ClubEntry.onCreated(function(){
 
 });
 
+// helpers for the club collection
+// allow updates and edits
 Template.ClubEntry.helpers({
 	updateClub: function() {
 		return this._id;
@@ -33,6 +37,7 @@ Template.ClubEntry.helpers({
 	}
 });
 
+// click events to handle the edit and delete buttons
 Template.ClubEntry.events({ 
 	'click .fa-trash': function(){
 		Meteor.call('deleteClub', this._id);

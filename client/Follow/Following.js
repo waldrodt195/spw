@@ -1,3 +1,4 @@
+// Subscribes to entries collection on creation
 Template.Following.onCreated(function(){
 	var self = this;
 	self.autorun(function(){
@@ -5,6 +6,7 @@ Template.Following.onCreated(function(){
 	});
 });
 
+// Subscribes to following collection on creation
 Template.Following.onCreated(function(){
 	var self = this;
 	self.autorun(function(){
@@ -12,10 +14,8 @@ Template.Following.onCreated(function(){
 	});
 });
 
+// returns all of the events the user has subscribed to
 Template.Following.helpers({
-	/*entries: ()=> {
-		return Entries.find({inFollow: true});
-	}*/
 	followingcollection: ()=> {
 		return FollowingCollection.find({owner:Meteor.userId()});
 	}
